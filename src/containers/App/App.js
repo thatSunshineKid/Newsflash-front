@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { testStore } from '../../actions';
+import logo from '../../assets/images/logo.svg';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.testStore();
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,4 +31,11 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapDispatchToProps = dispatch => ({
+  testStore: () => dispatch(testStore())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
