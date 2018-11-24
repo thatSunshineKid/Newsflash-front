@@ -1,0 +1,38 @@
+input {
+  border-color: black;
+  border-right: none;
+  border-width: 1px;
+  font-size: 0.9rem;
+  height: 25px;
+  margin-top: 15px;
+  width: 200px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+::placeholder {
+  font-size: 0.9rem;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-button {
+  align-items: center;
+  border-color: black;
+  border-left: none;
+  display: flex;
+  height: 29px;
+  justify-content: center;
+  margin-top: 15px;
+  width: 29px;
+}
+
+.search-button:focus {
+  outline: 0;
+}
