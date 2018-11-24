@@ -1,0 +1,22 @@
+h2 {
+  padding-right: 5px; }
+
+a {
+  color: black;
+  padding: 20px;
+  text-decoration: none; }
+
+.home-container {
+  width: 100%; }
+
+.home-header {
+  background-color: lightgray;
+  color: black;
+  display: flex;
+  font-family: Candara, sans-serif;
+  justify-content: space-between;
+  padding: 15px 0 15px 0;
+  width: 100%; }
+
+.home-logo {
+  padding-left: 20px; }
