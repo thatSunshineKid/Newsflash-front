@@ -11,12 +11,15 @@ a {
 
 .home-header {
   background-color: lightgray;
+  box-shadow: 0px 1.5px 10px #111;
   color: black;
   display: flex;
   font-family: Candara, sans-serif;
   justify-content: space-between;
   padding: 15px 0 15px 0;
+  position: fixed;
   width: 100%; }
 
 .home-logo {
+  cursor: pointer;
   padding-left: 20px; }
