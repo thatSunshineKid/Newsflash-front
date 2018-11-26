@@ -1,0 +1,9 @@
+.card-content-container {
+  align-items: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  padding-bottom: 10px; }
+
+.card-image {
+  max-height: 27rem;
+  max-width: 40rem; }
