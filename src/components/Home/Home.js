@@ -7,6 +7,13 @@ import NavBar from '../NavBar/NavBar';
 import './Home.css';
 
 export default class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      time: ''
+    };
+  }
+
   render() {
     return (
       <div className="home-container">
