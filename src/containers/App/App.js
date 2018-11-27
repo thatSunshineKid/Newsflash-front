@@ -8,8 +8,17 @@ import Login from '../../components/Login/Login';
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
+  constructor() {
+    super();
+    this.state = {
+      practiceData: []
+    };
+  }
+  async componentDidMount() {
     this.props.testStore();
+    const response = await fetch(process.env.REACT_APP_DATABASE_API_URL + '/');
+    const practiceData = await response.json();
+    this.setState({ practiceData: [...practiceData] });
   }
 
   render() {
