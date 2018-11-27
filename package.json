@@ -1,6 +1,9 @@
 {
   "name": "newsflash-front",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.13.0"
+  },
   "private": true,
   "dependencies": {
     "react": "^16.6.3",
