@@ -11,10 +11,14 @@ export default class Search extends Component {
   render() {
     return (
       <div className="search-container">
-        <input placeholder="Search for a story" />
         <button className="search-button">
           <img src={searchIcon} alt="search icon" />
         </button>
+        <input
+          className="home-search-input"
+          type="search"
+          placeholder="Search for an article"
+        />
       </div>
     );
   }

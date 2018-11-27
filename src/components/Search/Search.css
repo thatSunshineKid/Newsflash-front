@@ -1,10 +1,11 @@
-input {
+.home-search-input {
   border-color: black;
-  border-right: none;
+  border-left: none;
   border-width: 1px;
   font-size: 0.9rem;
-  height: 25px;
+  height: 29px;
   margin-top: 15px;
+  padding-right: 12px;
   width: 200px; }
 
 input:focus {
@@ -22,7 +23,7 @@ input:focus {
 .search-button {
   align-items: center;
   border-color: black;
-  border-left: none;
+  border-right: none;
   display: flex;
   height: 29px;
   justify-content: center;

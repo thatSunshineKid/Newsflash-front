@@ -1,0 +1,8 @@
+.login-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column; }
+
+.login-logo {
+  height: 70px;
+  padding-left: 20px; }
