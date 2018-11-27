@@ -19,10 +19,14 @@ export default class Home extends Component {
       <div className="home-container">
         <header className="home-header">
           <img className="home-logo" src={logo} alt="logo" />
-          <h2>Good Morning, Kurt.</h2>
+          <h2 className="home-greeting">Good Morning, Kurt.</h2>
           <div>
-            <NavLink to="/">Sign Up</NavLink>
-            <NavLink to="/">Login</NavLink>
+            <NavLink className="sign-up-link" to="/sign-up">
+              Sign Up
+            </NavLink>
+            <NavLink className="login-link" to="/login">
+              Login
+            </NavLink>
           </div>
         </header>
         <Search />
