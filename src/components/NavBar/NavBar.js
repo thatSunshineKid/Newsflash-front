@@ -6,14 +6,30 @@ export default class NavBar extends Component {
   render() {
     return (
       <div className="navbar-container">
-        <NavLink to="/">Trending</NavLink>
-        <NavLink to="/">Politics</NavLink>
-        <NavLink to="/">Business</NavLink>
-        <NavLink to="/">Sports</NavLink>
-        <NavLink to="/">Health</NavLink>
-        <NavLink to="/">Tech</NavLink>
-        <NavLink to="/">Food</NavLink>
-        <NavLink to="/">Travel</NavLink>
+        <NavLink className="navbar-link" to="/">
+          Trending
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Politics
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Business
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Sports
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Health
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Tech
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Food
+        </NavLink>
+        <NavLink className="navbar-link" to="/">
+          Travel
+        </NavLink>
       </div>
     );
   }
