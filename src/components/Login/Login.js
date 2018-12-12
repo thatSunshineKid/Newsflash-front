@@ -6,17 +6,17 @@ import './Login.css';
 export default class Login extends Component {
   render() {
     return (
-      <div>
+      <div className="login-container">
         <header className="signup-header">
           <NavLink to="/">
             <img className="login-logo" src={logo} alt="logo" />
           </NavLink>
         </header>
         <form className="login-form">
-          <h2>Login</h2>
+          <h2 className="form-login-header">Login</h2>
           <input type="text" placeholder="username" />
           <input type="password" placeholder="password" />
-          <button>Login</button>
+          <button className="login-button">Login</button>
         </form>
       </div>
     );
