@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/images/newsflash-logo.png';
+import logo from '../../assets/images/newsflash-logo-light.png';
 import Search from '../Search/Search';
 import StoryContainer from '../StoryContainer/StoryContainer';
 import NavBar from '../NavBar/NavBar';
@@ -19,6 +19,7 @@ export default class Home extends Component {
     const response = await fetch('http://localhost:3010/');
 
     const mockStories = await response.json();
+
     this.setState({
       mockStories: [...mockStories]
     });
