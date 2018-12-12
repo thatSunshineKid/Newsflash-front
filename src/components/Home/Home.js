@@ -10,11 +10,23 @@ export default class Home extends Component {
   constructor() {
     super();
     this.state = {
-      time: ''
+      time: '',
+      mockStories: []
     };
   }
 
+  componentDidMount = async () => {
+    const response = await fetch('http://localhost:3010/');
+
+    const mockStories = await response.json();
+    this.setState({
+      mockStories: [...mockStories]
+    });
+  };
+
   render() {
+    const { mockStories } = this.state;
+
     return (
       <div className="home-container">
         <header className="home-header">
@@ -31,7 +43,7 @@ export default class Home extends Component {
         </header>
         <Search />
         <NavBar />
-        <StoryContainer />
+        {mockStories && <StoryContainer mockStories={mockStories} />}
       </div>
     );
   }
