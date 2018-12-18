@@ -33,7 +33,7 @@ export default class Home extends Component {
         <header className="home-header">
           <img className="home-logo" src={logo} alt="logo" />
           <h2 className="home-greeting">Good Afternoon, Kurt.</h2>
-          <div>
+          <div className="homepage-signup-login-container">
             <NavLink className="sign-up-link" to="/sign-up">
               Sign Up
             </NavLink>
