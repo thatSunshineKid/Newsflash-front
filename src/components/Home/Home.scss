@@ -2,10 +2,15 @@
   padding-right: 5px;
 }
 
+.homepage-signup-login-container {
+  display: flex;
+  align-items: center;
+}
+
 .sign-up-link,
 .login-link {
   color: #f7f7f7;
-  padding: 20px;
+  padding: 0 20px 40px 20px;
   text-decoration: none;
 }
 

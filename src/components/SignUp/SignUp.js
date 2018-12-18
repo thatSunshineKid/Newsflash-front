@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/images/newsflash-logo.png';
+import logo from '../../assets/images/newsflash-logo-light.png';
 import './SignUp.css';
 
 export default class SignUp extends Component {
@@ -10,6 +10,9 @@ export default class SignUp extends Component {
         <header className="signup-header">
           <NavLink to="/">
             <img className="search-logo" src={logo} alt="logo" />
+          </NavLink>
+          <NavLink className="sign-up-home-link" to="/">
+            Home
           </NavLink>
         </header>
         <form className="signup-form">
