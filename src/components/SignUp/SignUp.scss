@@ -6,13 +6,13 @@ form input {
   font-size: 1.2rem;
   height: 40px;
   margin: 1rem;
-  width: 270px;
+  padding-left: 0.75rem;
+  width: 260px;
 }
 
 form input::placeholder {
   color: #c4c3c3;
   font-size: 1.2rem;
-  padding-left: 0.5rem;
 }
 
 .signup-container {
@@ -24,6 +24,7 @@ form input::placeholder {
 }
 
 .signup-header {
+  align-items: center;
   background-color: #181818;
   box-shadow: 0px 1.5px 10px #111;
   color: #f7f7f7;
@@ -62,7 +63,7 @@ form input::placeholder {
 .signup-button {
   border-radius: 3px;
   border: none;
-  background-color: #f8d649;
+  background-color: #ffcc00;
   font-size: 1.2rem;
   height: 40px;
   margin: 1rem;
@@ -70,11 +71,12 @@ form input::placeholder {
 }
 
 .signup-button:hover {
+  background-color: #f8d649;
   cursor: pointer;
 }
 
 .sign-up-home-link {
   color: #f7f7f7;
-  padding: 6px 45px 20px 20px;
+  padding: 0 25px 40px 0;
   text-decoration: none;
 }

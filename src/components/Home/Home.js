@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/newsflash-logo-light.png';
+import menu from '../../assets/images/menu.svg';
 import Search from '../Search/Search';
 import StoryContainer from '../StoryContainer/StoryContainer';
 import NavBar from '../NavBar/NavBar';
@@ -39,6 +40,9 @@ export default class Home extends Component {
             </NavLink>
             <NavLink className="login-link" to="/login">
               Login
+            </NavLink>
+            <NavLink className="login-link" to="/">
+              <img src={menu} alt="menu" />
             </NavLink>
           </div>
         </header>

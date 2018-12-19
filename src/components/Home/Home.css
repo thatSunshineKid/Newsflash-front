@@ -1,5 +1,8 @@
 .home-greeting {
-  padding-right: 5px; }
+  align-self: center;
+  margin: 0;
+  padding: 15px 0 0 72px;
+  text-align: center; }
 
 .homepage-signup-login-container {
   display: flex;
@@ -8,13 +11,14 @@
 .sign-up-link,
 .login-link {
   color: #f7f7f7;
-  padding: 0 20px 40px 20px;
+  padding: 0 25px 40px 20px;
   text-decoration: none; }
 
 .home-container {
   width: 100%; }
 
 .home-header {
+  align-items: center;
   background-color: #181818;
   box-shadow: 0px 1.5px 10px #111;
   color: #f7f7f7;
@@ -26,5 +30,6 @@
   width: 100%; }
 
 .home-logo {
+  justify-self: center;
   cursor: pointer;
   padding-left: 20px; }
