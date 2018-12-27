@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/newsflash-logo-light.png';
-import menu from '../../assets/images/menu.svg';
 import Search from '../Search/Search';
 import StoryContainer from '../StoryContainer/StoryContainer';
 import NavBar from '../NavBar/NavBar';
+import Sidebar from '../Sidebar/Sidebar';
+import Backdrop from '../Backdrop/Backdrop';
+import ToggleDrawerButton from '../ToggleDrawerButton/ToggleDrawerButton';
 import './Home.css';
 
 export default class Home extends Component {
@@ -12,7 +14,8 @@ export default class Home extends Component {
     super();
     this.state = {
       time: '',
-      mockStories: []
+      mockStories: [],
+      drawerOpen: false
     };
   }
 
@@ -26,8 +29,19 @@ export default class Home extends Component {
     });
   };
 
+  toggleDrawer = () => {
+    this.setState(prevState => {
+      return { drawerOpen: !prevState.drawerOpen };
+    });
+  };
+
   render() {
-    const { mockStories } = this.state;
+    const { mockStories, drawerOpen } = this.state;
+    let backdrop;
+
+    if (drawerOpen) {
+      backdrop = <Backdrop toggleDrawer={this.toggleDrawer} />;
+    }
 
     return (
       <div className="home-container">
@@ -41,11 +55,11 @@ export default class Home extends Component {
             <NavLink className="login-link" to="/login">
               Login
             </NavLink>
-            <NavLink className="login-link" to="/">
-              <img src={menu} alt="menu" />
-            </NavLink>
+            <ToggleDrawerButton toggleDrawer={this.toggleDrawer} />
           </div>
         </header>
+        <Sidebar display={drawerOpen} />
+        {backdrop}
         <Search />
         <NavBar />
         {mockStories && <StoryContainer mockStories={mockStories} />}
