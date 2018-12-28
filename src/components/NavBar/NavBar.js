@@ -3,9 +3,31 @@ import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 export default class NavBar extends Component {
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleNav);
+  }
+
+  handleNav = () => {
+    const nav = document.querySelector('.navbar-container');
+
+    const header = document.querySelector('.home-header');
+
+    let topOfNav = nav.offsetTop;
+
+    if (window.pageYOffset >= topOfNav) {
+      document.body.style.marginTop = nav.offsetHeight + 'px';
+      document.body.classList.add('fixed-nav');
+    }
+
+    if (window.pageYOffset <= header.offsetHeight) {
+      document.body.classList.remove('fixed-nav');
+      document.body.style.marginTop = 0;
+    }
+  };
+
   render() {
     return (
-      <div className="navbar-container">
+      <nav className="navbar-container">
         <NavLink className="navbar-link" to="/">
           Trending
         </NavLink>
@@ -30,7 +52,7 @@ export default class NavBar extends Component {
         <NavLink className="navbar-link" to="/">
           Travel
         </NavLink>
-      </div>
+      </nav>
     );
   }
 }

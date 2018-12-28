@@ -37,14 +37,11 @@ export default class Home extends Component {
 
   render() {
     const { mockStories, drawerOpen } = this.state;
-    let backdrop;
-
-    if (drawerOpen) {
-      backdrop = <Backdrop toggleDrawer={this.toggleDrawer} />;
-    }
 
     return (
       <div className="home-container">
+        <Sidebar display={drawerOpen} />
+        {drawerOpen && <Backdrop toggleDrawer={this.toggleDrawer} />}
         <header className="home-header">
           <img className="home-logo" src={logo} alt="logo" />
           <h2 className="home-greeting">Good Afternoon, Kurt.</h2>
@@ -58,10 +55,8 @@ export default class Home extends Component {
             <ToggleDrawerButton toggleDrawer={this.toggleDrawer} />
           </div>
         </header>
-        <Sidebar display={drawerOpen} />
-        {backdrop}
-        <Search />
         <NavBar />
+        <Search />
         {mockStories && <StoryContainer mockStories={mockStories} />}
       </div>
     );

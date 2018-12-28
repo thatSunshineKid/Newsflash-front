@@ -1,11 +1,18 @@
 .navbar-container {
+  background-color: #181818;
+  box-shadow: 0 7.5px 6px -6px #111;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-link {
-  color: black;
+  color: #f7f7f7;
   padding: 20px;
   text-decoration: none;
+}
+
+.fixed-nav nav {
+  position: fixed;
 }
