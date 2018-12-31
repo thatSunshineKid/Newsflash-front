@@ -67,9 +67,12 @@ form input::placeholder {
   cursor: pointer; }
 
 .login-home-link {
-  color: #f7f7f7;
+  color: #c9c9c9;
   padding: 0 25px 40px 0;
   text-decoration: none; }
+
+.login-home-link:hover {
+  color: #fff; }
 
 .login-link-container {
   display: flex;
