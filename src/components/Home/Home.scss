@@ -12,9 +12,14 @@
 
 .sign-up-link,
 .login-link {
-  color: #f7f7f7;
+  color: #c9c9c9;
   padding: 0 25px 40px 20px;
   text-decoration: none;
+}
+
+.sign-up-link:hover,
+.login-link:hover {
+  color: #fff;
 }
 
 .home-container {
