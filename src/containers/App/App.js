@@ -10,8 +10,19 @@ import Favorites from '../../components/Favorites/Favorites';
 import './App.css';
 
 class App extends Component {
+  fetchTestData = async () => {
+    const url =
+      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/backend/test/';
+
+    const response = await fetch(url);
+
+    const testData = await response.json();
+  };
+
   componentDidMount() {
     this.props.testStore();
+
+    this.fetchTestData();
   }
 
   render() {
