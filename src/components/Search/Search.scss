@@ -1,6 +1,14 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.75rem;
+}
+
 .home-search-input {
   border-color: black;
   border-left: none;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
   border-width: 1px;
   font-size: 0.9rem;
   height: 29px;
@@ -17,15 +25,12 @@ input:focus {
   font-size: 0.9rem;
 }
 
-.search-container {
-  display: flex;
-  justify-content: center;
-}
-
 .search-button {
   align-items: center;
   border-color: black;
   border-right: none;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
   display: flex;
   height: 29px;
   justify-content: center;
