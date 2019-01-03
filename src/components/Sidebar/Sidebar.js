@@ -16,7 +16,7 @@ const Sidebar = props => {
           <NavLink to="/profile">Profile</NavLink>
         </li>
         <li>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <NavLink to="/reading-list">Reading List</NavLink>
         </li>
         <li>
           <NavLink to="/">Log Out</NavLink>
