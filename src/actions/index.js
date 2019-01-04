@@ -1,3 +1,4 @@
-export const testStore = () => ({
-  type: 'TEST_STORE'
+export const addTrendingStory = topStory => ({
+  type: 'ADD_TRENDING_STORY',
+  topStory
 });

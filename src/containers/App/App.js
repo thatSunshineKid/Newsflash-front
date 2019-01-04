@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { testStore } from '../../actions';
+import { addTrendingStory } from '../../actions';
 import { Route, withRouter } from 'react-router-dom';
 import Business from '../../components/Business/Business';
 import Food from '../../components/Food/Food';
@@ -25,11 +25,11 @@ class App extends Component {
     const response = await fetch(url);
 
     const testData = await response.json();
+
+    this.props.addTrendingStory(testData);
   };
 
   componentDidMount() {
-    this.props.testStore();
-
     this.fetchTestData();
   }
 
@@ -55,7 +55,7 @@ class App extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  testStore: () => dispatch(testStore())
+  addTrendingStory: story => dispatch(addTrendingStory(story))
 });
 
 export default withRouter(
