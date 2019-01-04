@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTrendingStory } from '../../actions';
+import { fetchTestPosts } from '../../thunks/fetchTestPosts';
 import { Route, withRouter } from 'react-router-dom';
 import Business from '../../components/Business/Business';
 import Food from '../../components/Food/Food';
@@ -18,19 +18,8 @@ import Trending from '../../components/Trending/Trending';
 import './App.css';
 
 class App extends Component {
-  fetchTestData = async () => {
-    const url =
-      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/backend/test/';
-
-    const response = await fetch(url);
-
-    const testData = await response.json();
-
-    this.props.addTrendingStory(testData);
-  };
-
   componentDidMount() {
-    this.fetchTestData();
+    this.props.addTestPosts();
   }
 
   render() {
@@ -55,7 +44,7 @@ class App extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addTrendingStory: story => dispatch(addTrendingStory(story))
+  addTestPosts: story => dispatch(fetchTestPosts(story))
 });
 
 export default withRouter(
