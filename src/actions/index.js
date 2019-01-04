@@ -1,4 +1,4 @@
-export const addTrendingStory = topStory => ({
-  type: 'ADD_TRENDING_STORY',
-  topStory
+export const fetchPosts = posts => ({
+  type: 'FETCH_POSTS',
+  posts
 });

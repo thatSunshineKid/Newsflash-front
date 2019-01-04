@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { trendingReducer } from './trendingReducer';
+import { postsReducer } from './postsReducer';
 
 const rootReducer = combineReducers({
-  topStory: trendingReducer
+  posts: postsReducer
 });
 
 export default rootReducer;

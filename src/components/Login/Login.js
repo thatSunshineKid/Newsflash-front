@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import logo from '../../assets/images/newsflash-logo-light.png';
 import './Login.css';
 
-export default class Login extends Component {
+class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="login-container">
@@ -15,7 +28,7 @@ export default class Login extends Component {
             Home
           </NavLink>
         </header>
-        <form className="login-form">
+        <form className="login-form" onSubmit={this.handleSubmit}>
           <h2 className="form-login-header">Login</h2>
           <input type="text" placeholder="username" />
           <input type="password" placeholder="password" />
@@ -33,3 +46,12 @@ export default class Login extends Component {
     );
   }
 }
+
+export const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Login);
