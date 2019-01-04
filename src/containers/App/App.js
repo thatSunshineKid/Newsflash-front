@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTestPosts } from '../../thunks/fetchTestPosts';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Business from '../../components/Business/Business';
 import Food from '../../components/Food/Food';
 import Health from '../../components/Health/Health';
 import Home from '../../components/Home/Home';
-import Login from '../../components/Login/Login';
+import Login from '../Login/Login';
+import NotFound from '../../components/NotFound/NotFound';
 import Politics from '../../components/Politics/Politics';
 import Profile from '../../components/Profile/Profile';
 import ReadingList from '../../components/ReadingList/ReadingList';
@@ -25,19 +26,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/business" component={Business} />
-        <Route path="/food" component={Food} />
-        <Route path="/health" component={Health} />
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/politics" component={Politics} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/reading-list" component={ReadingList} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/sports" component={Sports} />
-        <Route path="/tech" component={Tech} />
-        <Route path="/travel" component={Travel} />
-        <Route path="/trending" component={Trending} />
+        <Switch>
+          <Route path="/business" component={Business} />
+          <Route path="/food" component={Food} />
+          <Route path="/health" component={Health} />
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/politics" component={Politics} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/reading-list" component={ReadingList} />
+          <Route path="/sign-up" component={SignUp} />
+          <Route path="/sports" component={Sports} />
+          <Route path="/tech" component={Tech} />
+          <Route path="/travel" component={Travel} />
+          <Route path="/trending" component={Trending} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }
