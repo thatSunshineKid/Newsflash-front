@@ -1,5 +1,5 @@
 .card-content-container {
-  align-items: center;
+  justify-content: space-around;
   border-bottom: 1px solid black;
   display: flex;
   padding-bottom: 10px; }
@@ -7,3 +7,12 @@
 .card-image {
   max-height: 27rem;
   max-width: 40rem; }
+
+.card-title {
+  display: flex;
+  justify-content: center; }
+
+.card-link-source-container {
+  justify-content: center;
+  display: flex;
+  flex-direction: column; }
