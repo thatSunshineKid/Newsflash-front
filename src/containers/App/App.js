@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchTestPosts } from '../../thunks/fetchTestPosts';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Business from '../../components/Business/Business';
 import Food from '../../components/Food/Food';
 import Health from '../../components/Health/Health';
@@ -18,11 +16,7 @@ import Travel from '../../components/Travel/Travel';
 import Trending from '../../components/Trending/Trending';
 import './App.css';
 
-class App extends Component {
-  componentDidMount() {
-    this.props.addTestPosts();
-  }
-
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -46,14 +40,3 @@ class App extends Component {
     );
   }
 }
-
-export const mapDispatchToProps = dispatch => ({
-  addTestPosts: story => dispatch(fetchTestPosts(story))
-});
-
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(App)
-);

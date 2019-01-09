@@ -1,17 +1,18 @@
 import { fetchPosts } from '../actions';
 
 export const fetchTestPosts = () => {
-  return dispatch => {
+  return async dispatch => {
+    const url =
+      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/backend/test/';
+
     let headers = {
       'Content-Type': 'application/json'
     };
-    return fetch(
-      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/backend/test/',
-      { headers }
-    )
-      .then(res => res.json())
-      .then(posts => {
-        return dispatch(fetchPosts(posts));
-      });
+
+    const response = await fetch(url, { headers });
+
+    const posts = await response.json();
+
+    return dispatch(fetchPosts(posts));
   };
 };
