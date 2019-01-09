@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchTestPosts } from '../../thunks/fetchTestPosts';
 import logo from '../../assets/images/newsflash-logo-light.png';
 import Search from '../Search/Search';
 import StoryContainer from '../StoryContainer/StoryContainer';
@@ -9,25 +11,20 @@ import Backdrop from '../Backdrop/Backdrop';
 import ToggleDrawerButton from '../ToggleDrawerButton/ToggleDrawerButton';
 import './Home.css';
 
-export default class Home extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.state = {
       time: '',
-      mockStories: [],
       drawerOpen: false
     };
   }
 
-  componentDidMount = async () => {
-    const response = await fetch('http://localhost:3010/');
+  async componentDidMount() {
+    const { addTestPosts } = this.props;
 
-    const mockStories = await response.json();
-
-    this.setState({
-      mockStories: [...mockStories]
-    });
-  };
+    await addTestPosts();
+  }
 
   toggleDrawer = () => {
     this.setState(prevState => {
@@ -36,7 +33,8 @@ export default class Home extends Component {
   };
 
   render() {
-    const { mockStories, drawerOpen } = this.state;
+    const { drawerOpen } = this.state;
+    const { posts } = this.props;
 
     return (
       <div className="home-container">
@@ -57,8 +55,21 @@ export default class Home extends Component {
         </header>
         <NavBar />
         <Search />
-        {mockStories && <StoryContainer mockStories={mockStories} />}
+        {posts && <StoryContainer mockStories={posts} />}
       </div>
     );
   }
 }
+
+export const mapStateToProps = state => ({
+  posts: state.posts
+});
+
+export const mapDispatchToProps = dispatch => ({
+  addTestPosts: story => dispatch(fetchTestPosts(story))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
