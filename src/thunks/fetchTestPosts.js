@@ -3,7 +3,7 @@ import { fetchPosts } from '../actions';
 export const fetchTestPosts = () => {
   return async dispatch => {
     const url =
-      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/backend/test/';
+      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/api/test/';
 
     let headers = {
       'Content-Type': 'application/json'
