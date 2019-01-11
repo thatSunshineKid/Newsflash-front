@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loadUser } from '../../actions';
 import Business from '../../components/Business/Business';
 import Food from '../../components/Food/Food';
 import Health from '../../components/Health/Health';
@@ -16,15 +18,38 @@ import Travel from '../../components/Travel/Travel';
 import Trending from '../../components/Trending/Trending';
 import './App.css';
 
-export default class App extends Component {
+class App extends Component {
+  componentDidMount() {
+    this.props.loadUser();
+  }
+
+  PrivateRoute = ({ component: Home, ...rest }) => {
+    return (
+      <Route
+        {...rest}
+        render={props => {
+          if (this.props.authentication.isLoading) {
+            return <em>Loading...</em>;
+          } else if (!this.props.authentication.isAuthenticated) {
+            return <Redirect to="/login" />;
+          } else {
+            return <Home {...props} />;
+          }
+        }}
+      />
+    );
+  };
+
   render() {
+    let { PrivateRoute } = this;
+
     return (
       <div className="App">
         <Switch>
           <Route path="/business" component={Business} />
           <Route path="/food" component={Food} />
           <Route path="/health" component={Health} />
-          <Route exact path="/" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/politics" component={Politics} />
           <Route path="/profile" component={Profile} />
@@ -40,3 +65,18 @@ export default class App extends Component {
     );
   }
 }
+
+export const mapStateToProps = state => ({
+  authentication: state.authentication
+});
+
+export const mapDispatchToProps = dispatch => ({
+  loadUser: () => dispatch(loadUser())
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
