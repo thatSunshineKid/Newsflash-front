@@ -34,7 +34,7 @@ class Home extends Component {
 
   render() {
     const { drawerOpen } = this.state;
-    const { posts } = this.props;
+    const { posts, authentication } = this.props;
 
     return (
       <div className="home-container">
@@ -42,14 +42,20 @@ class Home extends Component {
         {drawerOpen && <Backdrop toggleDrawer={this.toggleDrawer} />}
         <header className="home-header">
           <img className="home-logo" src={logo} alt="logo" />
-          <h2 className="home-greeting">Good Afternoon, Kurt.</h2>
+          {authentication.isAuthenticated && (
+            <h2 className="home-greeting">Good Afternoon, Kurt.</h2>
+          )}
           <div className="homepage-signup-login-container">
-            <NavLink className="sign-up-link" to="/sign-up">
-              Sign Up
-            </NavLink>
-            <NavLink className="login-link" to="/login">
-              Login
-            </NavLink>
+            {!authentication.isAuthenticated && (
+              <NavLink className="sign-up-link" to="/sign-up">
+                Sign Up
+              </NavLink>
+            )}
+            {!authentication.isAuthenticated && (
+              <NavLink className="login-link" to="/login">
+                Login
+              </NavLink>
+            )}
             <ToggleDrawerButton toggleDrawer={this.toggleDrawer} />
           </div>
         </header>
@@ -62,6 +68,7 @@ class Home extends Component {
 }
 
 export const mapStateToProps = state => ({
+  authentication: state.authentication,
   posts: state.posts
 });
 
