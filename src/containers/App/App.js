@@ -6,6 +6,7 @@ import Business from '../../components/Business/Business';
 import Food from '../../components/Food/Food';
 import Health from '../../components/Health/Health';
 import Home from '../../components/Home/Home';
+import Loading from '../../components/Loading/Loading';
 import Login from '../Login/Login';
 import NotFound from '../../components/NotFound/NotFound';
 import Politics from '../../components/Politics/Politics';
@@ -29,7 +30,7 @@ class App extends Component {
         {...rest}
         render={props => {
           if (this.props.authentication.isLoading) {
-            return <em>Loading...</em>;
+            return <Loading />;
           } else if (!this.props.authentication.isAuthenticated) {
             return <Redirect to="/login" />;
           } else {
@@ -41,7 +42,7 @@ class App extends Component {
   };
 
   render() {
-    let { PrivateRoute } = this;
+    const { PrivateRoute } = this;
 
     return (
       <div className="App">
