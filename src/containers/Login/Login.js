@@ -15,14 +15,19 @@ class Login extends Component {
   }
 
   handleSubmit = e => {
+    const { password, username } = this.state;
+
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password);
+    this.props.login(username, password);
   };
 
   render() {
-    if (this.props.isAuthenticated) {
+    const { isAuthenticated, errors } = this.props;
+
+    if (isAuthenticated) {
       return <Redirect to="/" />;
     }
+
     return (
       <div className="login-container">
         <header className="login-header">
@@ -33,9 +38,9 @@ class Login extends Component {
             Home
           </NavLink>
         </header>
-        {this.props.errors.length > 0 && (
+        {errors.length > 0 && (
           <ul>
-            {this.props.errors.map(error => (
+            {errors.map(error => (
               <li key={error.field}>{error.message}</li>
             ))}
           </ul>

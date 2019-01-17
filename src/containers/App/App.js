@@ -25,13 +25,15 @@ class App extends Component {
   }
 
   PrivateRoute = ({ component: Home, ...rest }) => {
+    const { authentication } = this.props;
+
     return (
       <Route
         {...rest}
         render={props => {
-          if (this.props.authentication.isLoading) {
+          if (authentication.isLoading) {
             return <Loading />;
-          } else if (!this.props.authentication.isAuthenticated) {
+          } else if (!authentication.isAuthenticated) {
             return <Redirect to="/login" />;
           } else {
             return <Home {...props} />;

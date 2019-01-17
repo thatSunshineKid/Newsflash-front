@@ -35,11 +35,12 @@ class Home extends Component {
   render() {
     const { drawerOpen } = this.state;
     const { posts, authentication } = this.props;
+    const { toggleDrawer } = this;
 
     return (
       <div className="home-container">
         <Sidebar display={drawerOpen} />
-        {drawerOpen && <Backdrop toggleDrawer={this.toggleDrawer} />}
+        {drawerOpen && <Backdrop toggleDrawer={toggleDrawer} />}
         <header className="home-header">
           <img className="home-logo" src={logo} alt="logo" />
           {authentication.isAuthenticated && (
@@ -56,7 +57,7 @@ class Home extends Component {
                 Login
               </NavLink>
             )}
-            <ToggleDrawerButton toggleDrawer={this.toggleDrawer} />
+            <ToggleDrawerButton toggleDrawer={toggleDrawer} />
           </div>
         </header>
         <NavBar />

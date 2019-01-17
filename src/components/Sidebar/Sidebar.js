@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../actions';
 import './Sidebar.css';
 
 const Sidebar = props => {
@@ -8,6 +10,10 @@ const Sidebar = props => {
   if (props.display) {
     barClassName = 'sidebar open';
   }
+
+  const handleClick = () => {
+    props.logoutUser();
+  };
 
   return (
     <nav className={barClassName}>
@@ -19,11 +25,20 @@ const Sidebar = props => {
           <NavLink to="/reading-list">Reading List</NavLink>
         </li>
         <li>
-          <NavLink to="/">Log Out</NavLink>
+          <NavLink to="/" onClick={handleClick}>
+            Log Out
+          </NavLink>
         </li>
       </ul>
     </nav>
   );
 };
 
-export default Sidebar;
+export const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logout())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Sidebar);
