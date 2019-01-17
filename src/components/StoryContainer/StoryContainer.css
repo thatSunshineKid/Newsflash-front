@@ -1,3 +1,6 @@
 .card-container {
   border-top: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0 20px 0 20px; }
