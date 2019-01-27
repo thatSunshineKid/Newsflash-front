@@ -66,6 +66,10 @@ form input::placeholder {
   background-color: #f8d649;
   cursor: pointer; }
 
+.logo-login-container {
+  display: flex;
+  justify-content: flex-start; }
+
 .login-home-link {
   color: #c9c9c9;
   padding: 0 25px 40px 0;

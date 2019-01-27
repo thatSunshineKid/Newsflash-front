@@ -75,6 +75,11 @@ form input::placeholder {
   cursor: pointer;
 }
 
+.logo-login-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .login-home-link {
   color: #c9c9c9;
   padding: 0 25px 40px 0;

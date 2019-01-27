@@ -37,9 +37,11 @@ class SignUp extends Component {
           <NavLink to="/">
             <img className="search-logo" src={logo} alt="logo" />
           </NavLink>
-          <NavLink className="sign-up-home-link" to="/">
-            Home
-          </NavLink>
+          {isAuthenticated && (
+            <NavLink className="sign-up-home-link" to="/">
+              Home
+            </NavLink>
+          )}
         </header>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <h2 className="form-signup-header">Sign Up</h2>
@@ -100,7 +102,7 @@ export const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   register: (first, last, email, username, password) =>
     dispatch(register(first, last, email, username, password))
 });

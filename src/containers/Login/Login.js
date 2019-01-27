@@ -30,13 +30,17 @@ class Login extends Component {
 
     return (
       <div className="login-container">
-        <header className="login-header">
+        <header
+          className={!isAuthenticated ? 'login-header' : 'logo-login-container'}
+        >
           <NavLink to="/">
             <img className="login-logo" src={logo} alt="logo" />
           </NavLink>
-          <NavLink className="sign-up-home-link" to="/">
-            Home
-          </NavLink>
+          {isAuthenticated && (
+            <NavLink className="sign-up-home-link" to="/">
+              Home
+            </NavLink>
+          )}
         </header>
         {errors.length > 0 && (
           <ul>
