@@ -4,8 +4,8 @@ import './StoryContainer.css';
 
 export default class StoryContainer extends Component {
   render() {
-    const storyCards = this.props.mockStories.map(item => (
-      <StoryCard {...item} key={item.id} />
+    const storyCards = this.props.posts.map(post => (
+      <StoryCard {...post} key={post.id} />
     ));
 
     return <div className="card-container">{storyCards}</div>;
