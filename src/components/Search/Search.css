@@ -23,6 +23,7 @@ input:focus {
 
 .search-button {
   align-items: center;
+  background-color: #fff;
   border-color: black;
   border-right: none;
   border-bottom-left-radius: 10px;
