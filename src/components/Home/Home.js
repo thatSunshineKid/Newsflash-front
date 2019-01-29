@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchTestPosts } from '../../thunks/fetchTestPosts';
 import logo from '../../assets/images/newsflash-logo-light.png';
+import mockUsers from '../../utils/mockUsers.json';
 import Search from '../Search/Search';
 import StoryContainer from '../StoryContainer/StoryContainer';
 import NavBar from '../NavBar/NavBar';
 import Sidebar from '../Sidebar/Sidebar';
 import Backdrop from '../Backdrop/Backdrop';
 import ToggleDrawerButton from '../ToggleDrawerButton/ToggleDrawerButton';
+import FlashBar from '../FlashBar/FlashBar';
 import './Home.css';
 
 class Home extends Component {
@@ -16,7 +18,8 @@ class Home extends Component {
     super();
     this.state = {
       time: '',
-      drawerOpen: false
+      drawerOpen: false,
+      showTopTopics: false
     };
   }
 
@@ -32,8 +35,14 @@ class Home extends Component {
     });
   };
 
+  toggleTopTopics = () => {
+    this.setState(prevState => {
+      return { showTopTopics: !prevState.showTopTopics };
+    });
+  };
+
   render() {
-    const { drawerOpen } = this.state;
+    const { drawerOpen, showTopTopics } = this.state;
     const { posts, authentication } = this.props;
     const { toggleDrawer } = this;
 
@@ -60,9 +69,14 @@ class Home extends Component {
             <ToggleDrawerButton toggleDrawer={toggleDrawer} />
           </div>
         </header>
-        <NavBar />
+        <FlashBar
+          showTopTopics={showTopTopics}
+          mockUsers={mockUsers}
+          toggleTopTopics={this.toggleTopTopics}
+        />
+        {showTopTopics && <NavBar />}
         <Search />
-        {posts && <StoryContainer mockStories={posts} />}
+        {posts && <StoryContainer posts={posts} />}
       </div>
     );
   }

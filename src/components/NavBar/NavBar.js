@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { toggleStickyNav } from '../../utils/toggleStickyNav.js';
 import './NavBar.css';
 
 export default class NavBar extends Component {
@@ -8,21 +9,7 @@ export default class NavBar extends Component {
   }
 
   handleNav = () => {
-    const nav = document.querySelector('.navbar-container');
-
-    const header = document.querySelector('.home-header');
-
-    let topOfNav = nav.offsetTop;
-
-    if (window.pageYOffset >= topOfNav) {
-      document.body.style.marginTop = nav.offsetHeight + 'px';
-      document.body.classList.add('fixed-nav');
-    }
-
-    if (window.pageYOffset <= header.offsetHeight) {
-      document.body.classList.remove('fixed-nav');
-      document.body.style.marginTop = 0;
-    }
+    toggleStickyNav();
   };
 
   render() {

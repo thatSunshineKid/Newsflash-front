@@ -11,7 +11,6 @@ import './StoryCard.css';
 export default class StoryCard extends Component {
   render() {
     const { title, author, url, source } = this.props;
-    console.log(url);
 
     return (
       <div className="story-card">
@@ -20,7 +19,12 @@ export default class StoryCard extends Component {
           <div>
             <img className="card-icon" src={user} alt="author" />
           </div>
-          <a className="story-card-link" href={url}>
+          <a
+            className="story-card-link"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Full Story
           </a>
           <div className="favorite-chat-container">
@@ -29,7 +33,7 @@ export default class StoryCard extends Component {
               src={favorite}
               alt="favorite"
             />
-            <img className="card-icon" src={chat} alt="chat" />
+            <img className="chat-card-icon card-icon" src={chat} alt="chat" />
           </div>
         </div>
         <div className="source-comments-container">
@@ -41,7 +45,7 @@ export default class StoryCard extends Component {
           </NavLink>
           <div className="like-idea-container">
             <img className="like-card-icon card-icon" src={like} alt="like" />
-            <img className="card-icon" src={idea} alt="idea" />
+            <img className="idea-card-icon card-icon" src={idea} alt="idea" />
           </div>
         </div>
       </div>

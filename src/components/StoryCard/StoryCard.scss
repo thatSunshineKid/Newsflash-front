@@ -1,8 +1,8 @@
 .story-card {
-  border: #161616 0.5px solid;
+  border: gray 0.5px solid;
   border-radius: 5px;
   box-shadow: 2px 2px;
-  height: 25vh;
+  height: 23vh;
   margin: 2rem;
   width: 44vw;
 }
@@ -10,6 +10,22 @@
 .favorite-card-icon,
 .like-card-icon {
   margin-right: 1rem;
+}
+
+.favorite-card-icon:hover {
+  background-image: url('../../assets/images/star-active.svg');
+}
+
+.like-card-icon:hover {
+  background-image: url('../../assets/images/like-active.svg');
+}
+
+.idea-card-icon:hover {
+  background-image: url('../../assets/images/idea-active.svg');
+}
+
+.chat-card-icon:hover {
+  background-image: url('../../assets/images/chat-active.svg');
 }
 
 .card-icon {
