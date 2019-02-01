@@ -32,4 +32,4 @@ You will be redirected to the Login page, because you have not been authenticate
 
 ## Home Page:
 
-<img src="./src/assets/images/newsflash-home.png">
+<img src="src/assets/images/newsflash-home.png">
