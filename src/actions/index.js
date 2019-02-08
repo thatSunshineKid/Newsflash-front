@@ -3,6 +3,52 @@ export const fetchPosts = posts => ({
   posts
 });
 
+export const addNewPost = (title, url, tags, sub_tags = []) => {
+  return (dispatch, getState) => {
+    let headers = { 'Content-Type': 'application/json' };
+    let body = JSON.stringify({
+      title,
+      url,
+      tags,
+      sub_tags,
+      is_public: true
+    });
+
+    const token = getState().authentication.token;
+
+    if (token) {
+      headers['Authorization'] = `Token ${token}`;
+    }
+
+    return fetch(
+      'https://cors-anywhere.herokuapp.com/https://newsflashback.herokuapp.com/api/post/create/',
+      { headers, body, method: 'POST' }
+    )
+      .then(res => {
+        if (res.status < 500) {
+          return res.json().then(data => {
+            return { status: res.status, data };
+          });
+        } else {
+          console.log('Server Error!');
+          throw res;
+        }
+      })
+      .then(res => {
+        if (res.status === 201) {
+          dispatch({ type: 'ADD_NEW_POST', post: res.data });
+          return res.data;
+        } else if (res.status === 403 || res.status === 401) {
+          dispatch({ type: 'ADD_NEW_POST_ERROR', data: res.data });
+          throw res.data;
+        } else {
+          dispatch({ type: 'ADD_NEW_POST_FAILED', data: res.data });
+          throw res.data;
+        }
+      });
+  };
+};
+
 export const loadUser = () => {
   return (dispatch, getState) => {
     dispatch({ type: 'USER_LOADING' });
@@ -105,7 +151,6 @@ export const logout = () => {
       .then(res => {
         if (res.status === 204) {
           dispatch({ type: 'LOGOUT_SUCCESSFUL' });
-          console.log('hit');
           return res.data;
         } else if (res.status === 403 || res.status === 401) {
           dispatch({ type: 'AUTHENTICATION_ERROR', data: res.data });
