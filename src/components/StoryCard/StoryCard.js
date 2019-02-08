@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import user from '../../assets/images/user-silhouette.svg';
 import favorite from '../../assets/images/star.svg';
 import chat from '../../assets/images/chat.svg';
@@ -10,7 +10,7 @@ import './StoryCard.css';
 
 export default class StoryCard extends Component {
   render() {
-    const { title, author, url, source } = this.props;
+    const { title, url } = this.props;
 
     return (
       <div className="story-card">

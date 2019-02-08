@@ -26,7 +26,7 @@ class SignUp extends Component {
   };
 
   render() {
-    const { isAuthenticated, errors } = this.props;
+    const { isAuthenticated } = this.props;
 
     if (isAuthenticated) {
       return <Redirect to="/" />;
@@ -45,13 +45,6 @@ class SignUp extends Component {
         </header>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <h2 className="form-signup-header">Sign Up</h2>
-          {errors.length > 0 && (
-            <ul>
-              {errors.map(error => (
-                <li key={error.field}>{error.message}</li>
-              ))}
-            </ul>
-          )}
           <input
             type="text"
             placeholder="first name"
